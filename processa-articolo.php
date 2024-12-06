@@ -40,7 +40,16 @@
             }
         }
         echo $msg;
-        //header(location: login.php?formmsg=);
+        header("location: login.php?formmsg=".$msg);
+    }
+
+    if($_POST["action"]==3){
+        $idarticolo = $_POST["idarticolo"];
+        $autore = $_SESSION["idautore"];
+        $dbh->deleteCategoriesOfArticle($idarticolo);
+        $dbh->deleteArticleOfAuthor($idarticolo, $autore);
+        $msg = "Articolo cancellato correttamente";
+        header("location: login.php?formmsg=".$msg);
     }
 
 
