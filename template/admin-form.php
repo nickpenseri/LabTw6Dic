@@ -27,4 +27,5 @@
                     <a href="login.php">Annulla</a>
                 </li>
             </ul>
+            <input type="hidden" name="action" value="<?php echo $templateParams["azione"] ?>" />
         </form>
