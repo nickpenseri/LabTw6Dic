@@ -5,7 +5,9 @@
         header("location: login.php");
     }
 
-    if(isset($_GET["id"])){
+    $templateParams["infoarticolo"] = getEmptyArticle();
+
+    if(isset($_GET["id"]) && !is_null($_GET["id"])){
         if($_GET["action"] != 2 && $_GET["action"] != 3){
             header("location: login.php");
         }
@@ -13,8 +15,6 @@
             $idarticolo = $_GET["id"];
             $templateParams["infoarticolo"] = $dbh->getPostById($idarticolo)[0];
         }
-    } else {
-        $templateparams["infoarticolo"] = getEmptyArticle();
     }
 
     $templateParams["titolo"] = "BlogTW - Gestisci Articoli";

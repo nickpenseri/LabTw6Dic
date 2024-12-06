@@ -19,7 +19,7 @@
                 </li>
                 <li>
                     <?php foreach($templateParams["categorie"] as $categoria): ?>
-                    <input type="checkbox" id="<?php echo $categoria["idcategoria"] ?>" name="categoria_<?php echo $categoria["idcategoria"]?>"/><label for="<?php echo $categoria["idcategoria"]?>"><?php echo $categoria["nomecategoria"] ?></label>
+                    <input type="checkbox" id="<?php echo $categoria["idcategoria"] ?>" name="categoria_<?php echo $categoria["idcategoria"]?>" /><label for="<?php echo $categoria["idcategoria"]?>"><?php echo $categoria["nomecategoria"] ?></label>
                     <?php endforeach; ?>
                 </li>
                 <li>

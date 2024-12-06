@@ -46,6 +46,8 @@
     if($_POST["action"]==3){
         $idarticolo = $_POST["idarticolo"];
         $autore = $_SESSION["idautore"];
+        $img = $dbh->getPostById($idarticolo)[0]["imgarticolo"];
+        unlink(UPLOAD_DIR.$img);
         $dbh->deleteCategoriesOfArticle($idarticolo);
         $dbh->deleteArticleOfAuthor($idarticolo, $autore);
         $msg = "Articolo cancellato correttamente";
