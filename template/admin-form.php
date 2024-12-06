@@ -1,3 +1,7 @@
+        <?php
+            $azione = getAction($templateParams["azione"]);
+        ?>
+        
         <form action="processa-articolo.php" method="POST" enctype="multipart/form-data">
             <h2>Gestisci Articolo</h2>
             <ul>
@@ -14,10 +18,12 @@
                     <label for="imgarticolo">Immagine Articolo</label><input type="file" name="imgarticolo" id="imgarticolo" />
                 </li>
                 <li>
-                    <input type="checkbox" id="" name="categoria_" /><label for="">Categoria</label>
+                    <?php foreach($templateParams["categorie"] as $categoria): ?>
+                    <input type="checkbox" id="<?php echo $categoria["idcategoria"] ?>" name="categoria_<?php echo $categoria["idcategoria"]?>" /><label for="<?php echo $categoria["idcategoria"]?>"><?php echo $categoria["nomecategoria"] ?></label>
+                    <?php endforeach; ?>
                 </li>
                 <li>
-                    <input type="submit" name="submit" value="Azione Articolo" />
+                    <input type="submit" name="submit" value="<?php echo $azione?> articolo" />
                     <a href="login.php">Annulla</a>
                 </li>
             </ul>
